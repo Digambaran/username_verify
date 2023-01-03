@@ -1,16 +1,16 @@
 import { shared } from "@appblocks/node-sdk";
 const username_verify = async (req, res) => {
-  const { prisma, key, getBody, sendResponse } = await shared.getShared();
+  const { prisma, getBody, sendResponse } = await shared.getShared();
   // health check
   if (req.params["health"] === "health") {
     res.write(JSON.stringify({ success: true, msg: "Health check success" }));
     res.end();
   }
-  console.log(process.env);
-  console.log(key, prisma, getBody, sendResponse);
+  // console.log(process.env);
+  // console.log(key, prisma, getBody, sendResponse);
   // Add your code here
   try {
-    const username = await getBody(req);
+    const { username } = await getBody(req);
 
     if (!username) throw new Error("Invalid request");
 
