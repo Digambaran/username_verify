@@ -21,6 +21,7 @@ const username_verify = async (req, res) => {
     return sendResponse(res, 200, { status: "ok", available: !userData });
     // return res.status(200).json({ status: "ok", available: !userData });
   } catch (error) {
+    console.log(error);
     return sendResponse(res, 400, { message: error.message });
 
     // return res.status(400).json({ message: error.message });
